@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animatronic Nights</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div id="mainMenu" class="menu active">
+            <div class="menu-content">
+                <h1>🤖 ANIMATRONIC NIGHTS 🤖</h1>
+                <p class="subtitle">Survive the animatronics...</p>
+                <button onclick="startGame()" class="btn btn-primary">Start Game</button>
+                <button onclick="showInstructions()" class="btn btn-secondary">Instructions</button>
+            </div>
+        </div>
+
+        <div id="instructionsMenu" class="menu">
+            <div class="menu-content">
+                <h2>HOW TO SURVIVE</h2>
+                <div class="instructions-text">
+                    <p>🎮 <strong>Objective:</strong> Survive 5 nights</p>
+                    <p>👀 <strong>Cameras:</strong> Click to watch areas</p>
+                    <p>🚪 <strong>Doors:</strong> Lock animatronics out</p>
+                    <p>⚡ <strong>Power:</strong> Manage wisely!</p>
+                </div>
+                <button onclick="backToMenu()" class="btn btn-primary">Back</button>
+            </div>
+        </div>
+
+        <div id="gameScreen" class="game-screen">
+            <div class="monitor-section">
+                <div class="monitor">
+                    <div class="monitor-display">
+                        <div class="camera-feed" id="cameraFeed">
+                            <div id="animatronicDisplay"></div>
+                        </div>
+                    </div>
+                    <div class="camera-buttons">
+                        <button onclick="switchCamera(0)" class="cam-btn">CAM 1</button>
+                        <button onclick="switchCamera(1)" class="cam-btn">CAM 2</button>
+                        <button onclick="switchCamera(2)" class="cam-btn">CAM 3</button>
+                        <button onclick="switchCamera(3)" class="cam-btn">CAM 4</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="control-section">
+                <div class="status-panel">
+                    <div class="status-item">
+                        <span class="label">NIGHT:</span>
+                        <span id="nightDisplay" class="value">1</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="label">TIME:</span>
+                        <span id="timeDisplay" class="value">12:00 AM</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="label">POWER:</span>
+                        <span id="powerDisplay" class="value">100%</span>
+                    </div>
+                    <div class="power-bar">
+                        <div id="powerBar" class="power-fill"></div>
+                    </div>
+                </div>
+
+                <div class="door-controls">
+                    <button id="leftDoorBtn" onclick="toggleDoor('left')" class="door-btn">LEFT DOOR</button>
+                    <span id="leftDoorStatus" class="door-status">OPEN</span>
+                    <button id="rightDoorBtn" onclick="toggleDoor('right')" class="door-btn">RIGHT DOOR</button>
+                    <span id="rightDoorStatus" class="door-status">OPEN</span>
+                </div>
+
+                <div class="animatronic-status">
+                    <h3>STATUS</h3>
+                    <div id="animatronicsList"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="gameOver" class="menu">
+            <div class="menu-content">
+                <h2 id="gameOverTitle">GAME OVER</h2>
+                <p id="gameOverMessage"></p>
+                <div id="gameOverStats"></div>
+                <button onclick="returnToMenu()" class="btn btn-primary">Main Menu</button>
+                <button onclick="startGame()" class="btn btn-secondary">Try Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
